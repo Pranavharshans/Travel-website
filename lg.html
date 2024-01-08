@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+
+<form>
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br><br>
+
+  <label for="place">Place:</label><br>
+  <input type="text" id="place" name="place"><br><br>
+
+  <label for="duration">Duration:</label><br>
+  <input type="text" id="duration" name="duration"><br><br>
+
+  <label for="num_person">Number of Person:</label><br>
+  <input type="number" id="num_person" name="num_person"><br><br>
+
+  <label for="destination">Destination:</label><br>
+  <input type="text" id="destination" name="destination"><br><br>
+
+  <input type="button" value="Send Message" onclick="sendMessage()">
+</form>
+
+<script>
+function sendMessage() {
+  // Fetch values from the form fields
+  var name = document.getElementById("name").value;
+  var place = document.getElementById("place").value;
+  var duration = document.getElementById("duration").value;
+  var num_person = document.getElementById("num_person").value;
+  var destination = document.getElementById("destination").value;
+
+
+  var whatsappMessage = "Name: " + name + "\nPlace: " + place + "\nDuration: " + duration + "\nNumber of Person: " + num_person + "\nDestination: " + destination;
+
+
+  var encodedMessage = encodeURIComponent(whatsappMessage);
+
+
+  var whatsappNumber = "+919790079333";
+
+  // Construct the WhatsApp URL with the pre-filled message
+  var whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + encodedMessage;
+
+  // Redirect to WhatsApp
+  window.location.href = whatsappURL;
+}
+</script>
+
+</body>
+</html>
